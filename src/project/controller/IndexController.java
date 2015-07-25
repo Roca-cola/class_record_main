@@ -17,6 +17,6 @@ public class IndexController extends Controller {
 
     @Override
     protected Navigation run() throws Exception {
-        return forward("project/index.jsp");
+        return forward("index.jsp");
     }
 }
