@@ -33,73 +33,9 @@
     <body>       
         <div id="page-container" class="sidebar-l sidebar-o side-scroll header-navbar-fixed">            
 
-            <!-- Sidebar -->
-            <nav id="sidebar">
-                <!-- Sidebar Scroll Container -->
-                <div id="sidebar-scroll">
-                    <!-- Sidebar Content -->
-                    <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
-                    <div class="sidebar-content">
-                        <!-- Side Header -->
-                        <div class="side-header side-content bg-white-op">
-                            <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-                            <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-toggle="layout" data-action="sidebar_close">
-                                <i class="fa fa-times"></i>
-                            </button>                            
-                            <a class="h5 text-white" href="#">
-                               <span class="h4 font-w600 sidebar-mini-hide">Class Record</span>
-                            </a>
-                        </div>
-                        <!-- END Side Header -->
-
-                        <!-- Side Content -->
-                        <div class="side-content">
-                            <ul class="nav-main">
-                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Student</span></li>
-                                <li>
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-user-plus"></i><span class="sidebar-mini-hide">Student Management</span></a>
-                                    <ul>
-                                        <li>
-                                            <a href="/student/add">Add Student</a>
-                                        </li>
-                                        
-                                        <li>
-                                            <a href="/student/edit">Edit/Delete Student</a>
-                                        </li>                                        
-                                    </ul>
-                                </li>
-                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Class Record</span></li>
-                                <li>
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="fa fa-table"></i><span class="sidebar-mini-hide">Records Management</span></a>
-                                    <ul>
-                                        <li>
-                                            <a class="nav-submenu" data-toggle="nav-submenu" href="#">View Class Record</a>
-                                            <ul>
-                                                <li>
-                                                    <a href="/student/records">CCS341</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/student/records">CCS12</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/student/records">CCS430</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="/student/assign">Assign Student</a>
-                                        </li>
-                                    </ul>
-                                </li>                                                                
-                            </ul>
-                        </div>
-                        <!-- END Side Content -->
-                    </div>
-                    <!-- Sidebar Content -->
-                </div>
-                <!-- END Sidebar Scroll Container -->
-            </nav>
-            <!-- END Sidebar -->
+			<!-- Header and Sidebar -->
+            <jsp:include page="sidebar.jsp" /> 	
+			<jsp:include page="header.jsp" /> 
 
             <!-- Header -->
             <header id="header-navbar" class="content-mini content-mini-full">
@@ -143,10 +79,10 @@
                     <div class="col-xs-2 col-xs-4 col-xs-6 col-md-6 col-lg-6"></div>
                         <div class="block-content">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th style="width: 10%;">Student Name</th>
+                                        <th style="width: 15%;">Student Name</th>
                                         <th class="hidden-xs" style="width: 3%;">Q1</th>
                                         <th class="hidden-xs" style="width: 3%;">Q2</th>
                                         <th class="hidden-xs" style="width: 3%;">Q3</th>
@@ -289,16 +225,11 @@
                 <!-- End Main Content -->                
             </main>
             <!-- END Main Container -->
+            
             <!-- Footer -->
-            <footer id="page-footer" class="content-mini content-mini-full font-s12 bg-gray-lighter clearfix">
-                <div class="pull-left">
-                    <img src="/assets/img/photos/Roca-Cola.png" height="50" width="150"/>
-                </div>
-                <div class="pull-right">
-                    <h5>All Rights Reserved &reg; 2015</h5>
-                </div>                
-            </footer>
+            <jsp:include page="footer.jsp" />
             <!-- END Footer -->
+            
         <!-- END Page Container -->
 
         <!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
@@ -313,5 +244,10 @@
         <script src="/assets/js/app.js"></script>
         <script src="/assets/js/plugins/slick/slick.min.js"></script>
         <script src="/assets/js/plugins/chartjs/Chart.min.js"></script>
+        <script>
+        	document.getElementById("header-navbar").style.visibility = "hidden";
+        	$("#record-nav").addClass("open");
+        	$("#classes-nav").addClass("open");
+        </script>
     </body>
 </html>
